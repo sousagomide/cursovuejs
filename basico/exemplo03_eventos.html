@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="incrementar">Clique aqui!</button>
+        <p>Botão clicado {{ cliques }} vezes</p>
+        <p v-on:mousemove="atualizarCoordenadas">Coordenadas x: {{x}} e y: {{y}}</p>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    cliques: 0,
+                    x: 0,
+                    y: 0
+                }
+            },
+            methods: {
+                incrementar(event) {
+                    console.log(event.target.innerText)
+                    this.cliques++
+                },
+                atualizarCoordenadas(event) {
+                    this.x = event.clientX
+                    this.y = event.clientY
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

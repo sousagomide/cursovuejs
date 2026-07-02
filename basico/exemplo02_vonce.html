@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ mensagem }}</p>
+        <p v-once v-html="nome">Meu nome é: {{ nome }}</p>
+        <p>Nome: {{ getNome() }}</p>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    nome: "Rodrigo de <span style=\"color: blue;\">Sousa</span> Gomide"
+                }
+            },
+            methods: {
+                getNome() {
+                    this.nome = 'Denecley Alvim'
+                    return this.nome
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

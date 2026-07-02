@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ curso }} => {{ cursoInvertido }}</p>
+        <input @keyup.enter="alterarNomeDoCurso">
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    curso: "Curso de VueJS"
+                }
+            },
+            computed: {
+                cursoInvertido() {
+                    return this.curso.split('').reverse().join('')
+                }
+            },
+            methods: {
+                alterarNomeDoCurso(event) {
+                    this.curso = event.target.value
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

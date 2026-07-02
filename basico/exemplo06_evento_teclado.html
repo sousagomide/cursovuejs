@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input v-on:keyup="onKey" placeholder="Qualquer tecla">
+        </br>
+        <input v-on:keyup.enter="onKey" placeholder="Tecla Enter">
+        </br>
+        <input v-on:keyup.enter.esc="onKey" placeholder="Tecla Enter ou ESC">
+        </br>
+        <input v-on:keyup.arrow-up="onKey" placeholder="Tecla Seta para cima">
+        </br>
+        <input v-on:keyup.ctrl.enter.exact="onKey" placeholder="Tecla CTRL + Enter (exact)">
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            methods: {
+                onKey(event) {
+                    console.log(`Tecla pressionada: ${event.key} - Código da tecla: ${event.keyCode}`)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

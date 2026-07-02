@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="onClick">Botão esquerdo</button>
+        </br>
+        <button v-on:click.middle="onClick">Botão do meio</button>
+        </br>
+        <button v-on:click.right="onClick">Botão direito</button>
+        </br>
+        <button v-on:click.right.prevent="onClick">Sem menu de contexto</button>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            methods: {
+                onClick(event) {
+                    console.log(`Botão ${event.button} pressionado`)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

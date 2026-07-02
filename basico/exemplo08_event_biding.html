@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="docs" target="blank">VueJS</a>
+        <button v-on:click="onClick">Clique</button>
+        <hr>
+        <a :href="docs" target="blank">VueJS</a>
+        <button @click="onClick">Clique</button>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    docs: "https://vuejs.org"
+                }
+            },
+            methods: {
+                onClick(event) {
+                    console.log(`Evento: ${event.type}`)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

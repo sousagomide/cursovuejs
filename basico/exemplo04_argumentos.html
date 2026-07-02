@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input v-on:blur="exibirNome('Professor', teste, $event)">
+        <p>{{nome}}</p>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    nome: "",
+                    teste: "teste"
+                }
+            },
+            methods: {
+                exibirNome(titulo, teste, event) {
+                    this.nome = `${titulo}: ${event.target.value} ${teste}`
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

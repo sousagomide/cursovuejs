@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ mensagem }}</p>
+        <input v-on:input="mudarNome">
+        <p>Meu nome é: {{ nome }} e estou testando o método: {{ testando() }}</p>
+        <p>Instrutor: <span v-text="instrutor"></span></p>
+        <p><a v-bind:href="docs" target="_blank">VueJS</a></p>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    mensagem: 'Olá, VueJS!',
+                    nome: '',
+                    docs: 'https://vuejs.org',
+                    instrutor: 'Rodrigo Gomide'
+                }
+            },
+            methods: {
+                mudarNome(event) {
+                    this.nome = event.target.value;
+                },
+                testando() {
+                    return 'Testando método';
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
