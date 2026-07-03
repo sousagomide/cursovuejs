@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        #app div {
+            display: inline-block;
+            margin-right: 10px;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div :style="estilosCSS"></div> <br>
+        <input v-model="cor" placeholder="Cor de fundo">
+        <input v-model.number="tamanho" placeholder="Tamanho em pixels">
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    cor: '',
+                    tamanho: 200
+                }
+            },
+            computed: {
+                estilosCSS() {
+                    return {
+                        backgroundColor: this.cor,
+                        height: this.tamanho + 'px',
+                        width: '100px'
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

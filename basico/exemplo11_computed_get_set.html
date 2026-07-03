@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>Nome: {{ nomeCompleto }}</p>
+        <input @keyup.enter="alterarNome">
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    primeiroNome: "Denecley",
+                    segundoNome: "Alvim",
+                }
+            },
+            computed: {
+                nomeCompleto: {
+                    get() {
+                        return `${this.primeiroNome} ${this.segundoNome}`
+                    },
+                    set(novoValor) {
+                        var nomes = novoValor.split(" ")
+                        this.primeiroNome = nomes[0]
+                        this.segundoNome = nomes[nomes.length - 1]
+                    }
+                }
+            },
+            methods: {
+                alterarNome(event) {
+                    this.nomeCompleto = event.target.value
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
