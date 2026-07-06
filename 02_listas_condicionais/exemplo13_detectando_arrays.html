@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="adicionarProduto">Adicionar produto</button>
+        <button @click="produtos = produtos.slice(0, 4)">Substituir arrays</button>
+        <button @click="subistituirProduto">Substituir produto</button>
+        <button @click="cortarArray">Cortar arrays</button>
+        <h1>Produtos:</h1>
+        <ul>
+            <li v-for="produto in produtos" :key="produto.id">{{produto.nome}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    produtos: [
+                        { id: 1, nome: 'Monitor' },
+                        { id: 2, nome: 'Teclado' },
+                        { id: 3, nome: 'Mouse' },
+                        { id: 4, nome: 'Processador' }
+                    ]
+                }
+            },
+            methods: {
+                adicionarProduto(event) {
+                    var id = this.produtos.length + 1
+                    this.produtos.push({ id: id, nome: 'Produto ' + id })
+                },
+                subistituirProduto(event) {
+                    var tamanho = this.produtos.length
+                    var index = Math.round(tamanho / 2)
+                    var novoProduto = { id: (tamanho + 1), nome: 'Produto ' + (tamanho + 1) }
+                    console.log(tamanho, index)
+                    // this.produtos[index] = novoProduto
+                    // Vue.set(this.produtos, index, novoProduto)
+                    // this.$set(this.produtos, index, novoProduto)
+                    this.produtos.splice(index, 1, novoProduto)
+                },
+                cortarArray(event) {
+                    // this.produtos.length = 2
+                    this.produtos.splice(2)
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

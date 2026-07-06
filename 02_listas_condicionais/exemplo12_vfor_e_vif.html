@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Tarefas Completas:</h1>
+        <ul>
+            <template v-for="tarefa in tarefas" :key="tarefa.id">
+                <li v-if="tarefa.completa">
+                    {{tarefa.titulo}}
+                </li>
+            </template>
+        </ul>
+        <h1>Tarefas Incompletas:</h1>
+        <ul v-if="tarefasIncompletas.length">
+            <template v-for="tarefa in tarefasIncompletas" :key="tarefa.id">
+                <li>{{tarefa.titulo}}</li>
+            </template>
+        </ul>
+        <p v-else>Não existem tarefas a fazer.</p>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    tarefas: [
+                        { id: 1, titulo: 'Aprender JavaScript', completa: true },
+                        { id: 2, titulo: 'Aprender VueJS', completa: true },
+                        { id: 3, titulo: 'Aprender Vuex', completa: true },
+                        { id: 4, titulo: 'Aprender VueRouter', completa: true }
+                    ]
+                }
+            },
+            computed: {
+                tarefasIncompletas() {
+                    return this.tarefas.filter(tarefa => !tarefa.completa)
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="mostrar = !mostrar">Toggle</button>
+        <p v-show="mostrar">Diretiva v-show "{{ mostrar }}"</p>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    mostrar: true
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

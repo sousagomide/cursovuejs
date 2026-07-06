@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="login = !login">Toggle</button>
+        <template v-if="login">
+            <label>Login:</label>
+            <input placeholder="Login" key="campo-login">
+        </template>
+        <template v-else>
+            <label>E-mail:</label>
+            <input placeholder="E-mail" key="campo-email">
+        </template>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    login: true
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

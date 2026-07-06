@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Números</h1>
+        <ul>
+            <li v-for="(valor, index) in 30">{{index}}: {{valor}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

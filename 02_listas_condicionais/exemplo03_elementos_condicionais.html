@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>Olá VueJS</li>
+            <li>Item 1</li>
+            <template v-if="mostrar">
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </template>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    mostrar: true
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
