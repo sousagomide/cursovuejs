@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app1">
+        <h2>Instância 1</h2>
+        <h3 v-if="mostrarMensagem">Título alterado!</h3>
+        <p>Título: {{titulo}}</p>
+        <p>Título lower case: {{tituloLowerCase}}</p>
+        <input v-model="novoTitulo">
+        <button @click="alterarTitulo">Alterar título</button>
+    </div>
+
+    <div id="app2">
+        <h2>Instância 2</h2>
+        <p>Título: {{titulo}}</p>
+        <button @click="alterarTitulo">Alterar título</button>
+    </div>
+
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    titulo: 'Instância Vue',
+                    novoTitulo: '',
+                    mostrarMensagem: false
+                }
+            },
+            methods: {
+                alterarTitulo() {
+                    this.titulo = this.novoTitulo
+                    this.novoTitulo = ''
+                }
+            },
+            computed: {
+                tituloLowerCase() {
+                    return this.titulo.toLowerCase().split(' ').join('-')
+                }
+            }
+        });
+        const vm = app.mount('#app1');
+
+        Vue.createApp({
+            data() {
+                return {
+                    titulo: 'Mosaico de instâncias Vue'
+                }
+            },
+            methods: {
+                alterarTitulo(event) {
+                    vm.titulo = 'Estou dentro do método alterarTitulo da instância 2'
+                }
+            }
+        }).mount('#app2');
+    </script>
+</body>
+
+</html>
