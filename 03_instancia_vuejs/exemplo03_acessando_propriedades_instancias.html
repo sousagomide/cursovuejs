@@ -12,6 +12,7 @@
         <h3 v-if="mostrarMensagem">Título alterado!</h3>
         <p>Título: {{titulo}}</p>
         <p>Título lower case: {{tituloLowerCase}}</p>
+        <p>Nova propriedade: {{novaPropriedade}}</p>
         <input v-model="novoTitulo">
         <button @click="alterarTitulo">Alterar título</button>
     </div>
@@ -28,7 +29,8 @@
                 return {
                     titulo: 'Instância Vue',
                     novoTitulo: '',
-                    mostrarMensagem: false
+                    mostrarMensagem: false,
+                    novaPropriedade: null
                 }
             },
             methods: {
@@ -42,8 +44,10 @@
                     return this.titulo.toLowerCase().split(' ').join('-')
                 }
             }
-        });
-        const vm = app.mount('#app1');
+        }).mount('#app1');
+
+        app.novaPropriedade = 'Teste'
+        // console.log(app)
 
         Vue.createApp({
             data() {
@@ -53,7 +57,7 @@
             },
             methods: {
                 alterarTitulo(event) {
-                    vm.titulo = 'Estou dentro do método alterarTitulo da instância 2'
+                    app.titulo = 'Estou dentro do método alterarTitulo da instância 2'
                 }
             }
         }).mount('#app2');
