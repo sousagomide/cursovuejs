@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{curso}}</h2>
+    </div>
+
+    <div id="app2"></div>
+
+    <script type="text/javascript">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    curso: 'Curso de VueJS'
+                }
+            }
+        })
+
+        setTimeout(() => {
+            app.mount('#app')
+        }, 3000)
+
+        var vm2 = Vue.createApp({
+            template: '<h2>Instância 2</h2>'
+        })
+        vm2.mount('#app2')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VueJS - Guia completo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>Instância 01</h2>
+        <meu-componente></meu-componente>
+        <meu-componente></meu-componente>
+    </div>
+
+    <div id="app2"></div>
+
+    <script type="text/javascript">
+        const MeuComponente = {
+            template: '<h3>Testando components</h3>'
+        }
+
+        const app = Vue.createApp({})
+        app.component('meu-componente', MeuComponente)
+        app.mount('#app')
+
+        const app2 = Vue.createApp({
+            template: '<div><h2>Instância 02</h2><meu-componente></meu-componente></div>'
+        })
+        app2.component('meu-componente', MeuComponente)
+        app2.mount('#app2')
+
+    </script>
+</body>
+
+</html>
